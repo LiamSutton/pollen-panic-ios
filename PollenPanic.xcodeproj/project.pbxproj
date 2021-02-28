@@ -13,6 +13,10 @@
 		F6F15EBB25EBFF0B000B681A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F15EBA25EBFF0B000B681A /* Assets.xcassets */; };
 		F6F15EBE25EBFF0B000B681A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F15EBC25EBFF0B000B681A /* LaunchScreen.storyboard */; };
 		F6F15EC725EC0A3F000B681A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15EC625EC0A3F000B681A /* MainMenuViewController.swift */; };
+		F6F15ECB25EC0B3C000B681A /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15ECA25EC0B3C000B681A /* LeaderboardViewController.swift */; };
+		F6F15ECF25EC0BDF000B681A /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15ECE25EC0BDF000B681A /* HelpViewController.swift */; };
+		F6F15ED325EC0CC5000B681A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15ED225EC0CC5000B681A /* AboutViewController.swift */; };
+		F6F15ED625EC0E06000B681A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15ED525EC0E06000B681A /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		F6F15EBD25EBFF0B000B681A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6F15EBF25EBFF0B000B681A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6F15EC625EC0A3F000B681A /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		F6F15ECA25EC0B3C000B681A /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		F6F15ECE25EC0BDF000B681A /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		F6F15ED225EC0CC5000B681A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F6F15ED525EC0E06000B681A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,10 @@
 				F6F15EBC25EBFF0B000B681A /* LaunchScreen.storyboard */,
 				F6F15EBF25EBFF0B000B681A /* Info.plist */,
 				F6F15EC625EC0A3F000B681A /* MainMenuViewController.swift */,
+				F6F15ECA25EC0B3C000B681A /* LeaderboardViewController.swift */,
+				F6F15ECE25EC0BDF000B681A /* HelpViewController.swift */,
+				F6F15ED225EC0CC5000B681A /* AboutViewController.swift */,
+				F6F15ED525EC0E06000B681A /* GameViewController.swift */,
 			);
 			path = PollenPanic;
 			sourceTree = "<group>";
@@ -137,9 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F15ED625EC0E06000B681A /* GameViewController.swift in Sources */,
+				F6F15ED325EC0CC5000B681A /* AboutViewController.swift in Sources */,
 				F6F15EC725EC0A3F000B681A /* MainMenuViewController.swift in Sources */,
 				F6F15EB225EBFF0B000B681A /* AppDelegate.swift in Sources */,
+				F6F15ECB25EC0B3C000B681A /* LeaderboardViewController.swift in Sources */,
 				F6F15EB425EBFF0B000B681A /* SceneDelegate.swift in Sources */,
+				F6F15ECF25EC0BDF000B681A /* HelpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

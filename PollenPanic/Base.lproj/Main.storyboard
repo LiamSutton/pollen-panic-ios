@@ -56,6 +56,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="bvY-vQ-rkx" kind="show" id="yrh-vN-fN7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5w-Da-Ejr">
                                 <rect key="frame" x="59" y="515" width="297" height="61"/>
@@ -91,6 +94,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="7k6-55-Nq2" kind="show" id="KNi-lm-7e7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OV-uw-ehl">
                                 <rect key="frame" x="59" y="680" width="297" height="61"/>
@@ -107,6 +113,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="KDW-jX-ECf" kind="show" id="ewO-JQ-bbE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -130,18 +139,105 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zY2-ya-rva"/>
-                    <connections>
-                        <segue destination="8Ic-8k-4eC" kind="show" id="VeG-o3-FcF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1083" y="-22"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
+        <scene sceneID="6Ri-oQ-0Ny">
+            <objects>
+                <viewController storyboardIdentifier="AboutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KDW-jX-ECf" customClass="AboutViewController" customModule="PollenPanic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FUs-hB-ZQ4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2p2-cW-zzl">
+                                <rect key="frame" x="91" y="162" width="233" height="112"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nyS-Jg-ZlB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2p2-cW-zzl" firstAttribute="top" secondItem="nyS-Jg-ZlB" secondAttribute="top" constant="74" id="7Hu-9m-QBa"/>
+                            <constraint firstItem="2p2-cW-zzl" firstAttribute="leading" secondItem="nyS-Jg-ZlB" secondAttribute="leading" constant="91" id="Hgm-jb-cBI"/>
+                            <constraint firstItem="nyS-Jg-ZlB" firstAttribute="bottom" secondItem="2p2-cW-zzl" secondAttribute="bottom" constant="588" id="oAt-sC-HdU"/>
+                            <constraint firstItem="2p2-cW-zzl" firstAttribute="centerX" secondItem="FUs-hB-ZQ4" secondAttribute="centerX" id="oXd-r4-kaP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8ua-dF-dWn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJy-dP-bd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1084" y="773"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="58Z-GM-WzS">
+            <objects>
+                <viewController storyboardIdentifier="HelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7k6-55-Nq2" customClass="HelpViewController" customModule="PollenPanic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oj1-7t-gou" customClass="helpview">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-Ss-fdP">
+                                <rect key="frame" x="91" y="163" width="233" height="112"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4e4-hx-nBv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eZb-Ss-fdP" firstAttribute="centerX" secondItem="oj1-7t-gou" secondAttribute="centerX" id="QZd-oB-SJI"/>
+                            <constraint firstItem="eZb-Ss-fdP" firstAttribute="top" secondItem="4e4-hx-nBv" secondAttribute="top" constant="75" id="eCB-W5-dAe"/>
+                            <constraint firstItem="eZb-Ss-fdP" firstAttribute="leading" secondItem="4e4-hx-nBv" secondAttribute="leading" constant="91" id="hhQ-tc-Xu3"/>
+                            <constraint firstItem="4e4-hx-nBv" firstAttribute="bottom" secondItem="eZb-Ss-fdP" secondAttribute="bottom" constant="587" id="uxp-at-hhN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jXf-8o-phi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3sF-ss-jgF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="563"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="ztR-0E-zZo">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bvY-vQ-rkx" customClass="GameViewController" customModule="PollenPanic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F7X-Y3-tgZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCR-kx-0k7">
+                                <rect key="frame" x="97" y="171" width="220" height="102"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xOh-6x-XPa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TCR-kx-0k7" firstAttribute="leading" secondItem="xOh-6x-XPa" secondAttribute="leading" constant="97" id="dCi-2Z-gm9"/>
+                            <constraint firstItem="TCR-kx-0k7" firstAttribute="centerX" secondItem="F7X-Y3-tgZ" secondAttribute="centerX" id="g3U-MV-6zQ"/>
+                            <constraint firstItem="TCR-kx-0k7" firstAttribute="top" secondItem="xOh-6x-XPa" secondAttribute="top" constant="83" id="o6l-6a-CJ2"/>
+                            <constraint firstItem="xOh-6x-XPa" firstAttribute="bottom" secondItem="TCR-kx-0k7" secondAttribute="bottom" constant="589" id="sdA-Av-xZq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5vu-n0-2l3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQW-mJ-9W7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250.72463768115944" y="-786.16071428571422"/>
+        </scene>
+        <!--Leaderboard View Controller-->
         <scene sceneID="ild-Qx-gSF">
             <objects>
-                <viewController id="8Ic-8k-4eC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeaderboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Ic-8k-4eC" customClass="LeaderboardViewController" customModule="PollenPanic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zBh-iV-pQc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,12 +260,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHm-aw-fjo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321.73913043478262" y="-350.22321428571428"/>
+            <point key="canvasLocation" x="252" y="-126"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="VeG-o3-FcF"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
