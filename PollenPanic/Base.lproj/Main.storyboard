@@ -236,19 +236,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current swipe direction: NONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieL-RA-X8R">
+                                <rect key="frame" x="20" y="325" width="374" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="8VD-w1-8dV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xOh-6x-XPa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TCR-kx-0k7" firstAttribute="leading" secondItem="xOh-6x-XPa" secondAttribute="leading" constant="97" id="dCi-2Z-gm9"/>
-                            <constraint firstItem="TCR-kx-0k7" firstAttribute="centerX" secondItem="F7X-Y3-tgZ" secondAttribute="centerX" id="g3U-MV-6zQ"/>
-                            <constraint firstItem="TCR-kx-0k7" firstAttribute="top" secondItem="xOh-6x-XPa" secondAttribute="top" constant="83" id="o6l-6a-CJ2"/>
-                            <constraint firstItem="xOh-6x-XPa" firstAttribute="bottom" secondItem="TCR-kx-0k7" secondAttribute="bottom" constant="589" id="sdA-Av-xZq"/>
+                            <constraint firstItem="ieL-RA-X8R" firstAttribute="trailing" secondItem="F7X-Y3-tgZ" secondAttribute="trailingMargin" id="1xz-ka-Rcb"/>
+                            <constraint firstItem="TCR-kx-0k7" firstAttribute="top" secondItem="xOh-6x-XPa" secondAttribute="top" constant="83" id="5u5-dy-IlZ"/>
+                            <constraint firstItem="TCR-kx-0k7" firstAttribute="centerX" secondItem="ieL-RA-X8R" secondAttribute="centerX" id="OWI-hv-wgh"/>
+                            <constraint firstItem="ieL-RA-X8R" firstAttribute="leading" secondItem="F7X-Y3-tgZ" secondAttribute="leadingMargin" id="Rhj-Cc-lqz"/>
+                            <constraint firstItem="TCR-kx-0k7" firstAttribute="leading" secondItem="xOh-6x-XPa" secondAttribute="leading" constant="97" id="eVB-fu-sfU"/>
+                            <constraint firstItem="ieL-RA-X8R" firstAttribute="top" secondItem="TCR-kx-0k7" secondAttribute="bottom" constant="52" id="t55-Fx-bZV"/>
+                            <constraint firstItem="xOh-6x-XPa" firstAttribute="bottom" secondItem="ieL-RA-X8R" secondAttribute="bottom" constant="466" id="vdx-q9-5rq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5vu-n0-2l3"/>
+                    <connections>
+                        <outlet property="swipeLabel" destination="ieL-RA-X8R" id="ova-HZ-CCE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQW-mJ-9W7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="reb-tH-gRn">
+                    <connections>
+                        <action selector="handleSwipeGesture:" destination="bvY-vQ-rkx" id="pkk-5Y-G2C"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="250.72463768115944" y="-786.16071428571422"/>
         </scene>
