@@ -8,8 +8,7 @@
 import SpriteKit
 class GameScene : SKScene {
     
-    let player = SKSpriteNode(imageNamed: "bee.png")
-    var currentDirection:CGFloat = Constants.DIRECTION_NONE
+    let bee = Bee()
     
     override func didMove(to view: SKView) {
         
@@ -34,37 +33,29 @@ class GameScene : SKScene {
         view.addGestureRecognizer(downSwipeGestureHandler)
         
         backgroundColor = SKColor.systemTeal
-        player.size = CGSize(width: 64, height: 64)
-        player.position = CGPoint(x:size.width * 0.5, y: size.height * 0.1)
+        setupBee()
         
-        addChild(player)
     }
     
     override func update(_ currentTime: TimeInterval) {
-        movePlayer()
+        bee.move()
     }
     
-    // Changes the position of the player within the bounds of the view
-    func movePlayer() {
-        if (player.position.x < 0 + player.size.width) {
-            player.position.x = 0 + player.size.width;
-        }
-        
-        if (player.position.x > size.width - player.size.width) {
-            player.position.x = size.width - player.size.width
-        }
-        player.position.x += currentDirection
+    func setupBee() {
+        bee.size = CGSize(width: 64, height: 64)
+        bee.position = CGPoint(x: size.width * 0.5, y: size.height * 0.1)
+        addChild(bee)
     }
-    
+   
     @objc func handleLeftSwipeGesture (sender: UISwipeGestureRecognizer) {
-        currentDirection = Constants.DIRECTION_LEFT
+        bee.changeDirection(newDirection: Constants.DIRECTION_LEFT)
     }
     
     @objc func handleRightSwipeGesture (sender: UISwipeGestureRecognizer) {
-        currentDirection = Constants.DIRECTION_RIGHT
+        bee.changeDirection(newDirection: Constants.DIRECTION_RIGHT)
     }
     
     @objc func handleDownSwipeGesture (sender: UISwipeGestureRecognizer) {
-        currentDirection = Constants.DIRECTION_NONE
+        bee.changeDirection(newDirection: Constants.DIRECTION_NONE)
     }
 }

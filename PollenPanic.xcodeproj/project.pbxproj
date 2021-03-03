@@ -11,6 +11,8 @@
 		F6D4C30625EF8A010090A311 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C30525EF8A010090A311 /* Constants.swift */; };
 		F6D4C33225EFBA2B0090A311 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C33125EFBA2B0090A311 /* GameScene.swift */; };
 		F6D4C33525EFBA970090A311 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F6D4C33425EFBA970090A311 /* GameScene.sks */; };
+		F6D4C33D25EFE0180090A311 /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C33C25EFE0180090A311 /* Bee.swift */; };
+		F6D4C34025EFE5230090A311 /* Pollen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C33F25EFE5230090A311 /* Pollen.swift */; };
 		F6F15EB225EBFF0B000B681A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15EB125EBFF0B000B681A /* AppDelegate.swift */; };
 		F6F15EB425EBFF0B000B681A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15EB325EBFF0B000B681A /* SceneDelegate.swift */; };
 		F6F15EB925EBFF0B000B681A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F15EB725EBFF0B000B681A /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 		F6D4C30525EF8A010090A311 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6D4C33125EFBA2B0090A311 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F6D4C33425EFBA970090A311 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		F6D4C33C25EFE0180090A311 /* Bee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
+		F6D4C33F25EFE5230090A311 /* Pollen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pollen.swift; sourceTree = "<group>"; };
 		F6F15EAE25EBFF0B000B681A /* PollenPanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollenPanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F15EB125EBFF0B000B681A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6F15EB325EBFF0B000B681A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				F6D4C30525EF8A010090A311 /* Constants.swift */,
 				F6D4C33125EFBA2B0090A311 /* GameScene.swift */,
 				F6D4C33425EFBA970090A311 /* GameScene.sks */,
+				F6D4C33C25EFE0180090A311 /* Bee.swift */,
+				F6D4C33F25EFE5230090A311 /* Pollen.swift */,
 			);
 			path = PollenPanic;
 			sourceTree = "<group>";
@@ -163,12 +169,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6D4C33225EFBA2B0090A311 /* GameScene.swift in Sources */,
+				F6D4C34025EFE5230090A311 /* Pollen.swift in Sources */,
 				F6F15ED625EC0E06000B681A /* GameViewController.swift in Sources */,
 				F6F15ED325EC0CC5000B681A /* AboutViewController.swift in Sources */,
 				F6F15EC725EC0A3F000B681A /* MainMenuViewController.swift in Sources */,
 				F6F15EB225EBFF0B000B681A /* AppDelegate.swift in Sources */,
 				F6831A5C25ED3AD400AB79CC /* GameOverViewController.swift in Sources */,
 				F6F15ECB25EC0B3C000B681A /* LeaderboardViewController.swift in Sources */,
+				F6D4C33D25EFE0180090A311 /* Bee.swift in Sources */,
 				F6F15EB425EBFF0B000B681A /* SceneDelegate.swift in Sources */,
 				F6F15ECF25EC0BDF000B681A /* HelpViewController.swift in Sources */,
 				F6D4C30625EF8A010090A311 /* Constants.swift in Sources */,

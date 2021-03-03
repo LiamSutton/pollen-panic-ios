@@ -10,6 +10,7 @@ class Constants {
     static let DIRECTION_NONE:CGFloat = 0.0
     static let DIRECTION_LEFT:CGFloat = -2.0
     static let DIRECTION_RIGHT:CGFloat = 2.0
+    static let DIRECTION_DOWN:CGFloat = -2.0
     
     static let BEE_FACTS:[String] =
         [
