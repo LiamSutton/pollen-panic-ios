@@ -7,8 +7,10 @@
 
 import SpriteKit
 class GameScene : SKScene {
+    
     let player = SKSpriteNode(imageNamed: "bee.png")
-    var currentDir:CGFloat = 0.0
+    var currentDirection:CGFloat = Constants.DIRECTION_NONE
+    
     override func didMove(to view: SKView) {
         
         let leftSwipeGestureHandler = UISwipeGestureRecognizer(
@@ -39,18 +41,18 @@ class GameScene : SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        player.position.x += currentDir
+        player.position.x += currentDirection
     }
     
     @objc func handleLeftSwipeGesture (sender: UISwipeGestureRecognizer) {
-        currentDir = -2.0
+        currentDirection = Constants.DIRECTION_LEFT
     }
     
     @objc func handleRightSwipeGesture (sender: UISwipeGestureRecognizer) {
-        currentDir = 2.0
+        currentDirection = Constants.DIRECTION_RIGHT
     }
     
     @objc func handleDownSwipeGesture (sender: UISwipeGestureRecognizer) {
-        currentDir = 0.0
+        currentDirection = Constants.DIRECTION_NONE
     }
 }
