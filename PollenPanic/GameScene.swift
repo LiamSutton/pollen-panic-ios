@@ -41,6 +41,18 @@ class GameScene : SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        movePlayer()
+    }
+    
+    // Changes the position of the player within the bounds of the view
+    func movePlayer() {
+        if (player.position.x < 0 + player.size.width) {
+            player.position.x = 0 + player.size.width;
+        }
+        
+        if (player.position.x > size.width - player.size.width) {
+            player.position.x = size.width - player.size.width
+        }
         player.position.x += currentDirection
     }
     
