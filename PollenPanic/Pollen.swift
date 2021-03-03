@@ -7,11 +7,10 @@
 
 import SpriteKit
 
-class Pollen : SKSpriteNode {
+class Pollen : GameObject, Moveable{
     var initialPosition:CGPoint = CGPoint(x: 0, y: 0)
     init() {
-        let texture = SKTexture(imageNamed: "pollen.png")
-        super.init(texture: texture, color: SKColor.clear, size: texture.size())
+        super.init(imageNamed: "pollen.png")
     }
     
     required init?(coder aDecoder: NSCoder) {

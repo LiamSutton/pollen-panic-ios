@@ -7,12 +7,11 @@
 
 import SpriteKit
 
-class Bee : SKSpriteNode {
+class Bee : GameObject, Moveable {
     var currentDirection:CGFloat = Constants.DIRECTION_NONE
     
     init() {
-        let texture = SKTexture(imageNamed: "bee.png")
-        super.init(texture: texture, color: SKColor.clear, size: texture.size())
+        super.init(imageNamed: "bee.png");
     }
     
     required init?(coder aDecoder: NSCoder) {
