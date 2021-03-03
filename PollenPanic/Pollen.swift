@@ -8,7 +8,7 @@
 import SpriteKit
 
 class Pollen : SKSpriteNode {
-    
+    var initialPosition:CGPoint = CGPoint(x: 0, y: 0)
     init() {
         let texture = SKTexture(imageNamed: "pollen.png")
         super.init(texture: texture, color: SKColor.clear, size: texture.size())
@@ -20,5 +20,11 @@ class Pollen : SKSpriteNode {
     
     func move() {
         self.position.y += Constants.DIRECTION_DOWN
+    }
+    
+    func checkBounds(v: SKView) {
+        if (self.position.y < 0) {
+            self.position = initialPosition
+        }
     }
 }
