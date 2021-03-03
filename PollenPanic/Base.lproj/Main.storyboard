@@ -360,6 +360,12 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="tYd-Va-vgu"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7k7-xa-na1">
+                                <rect key="frame" x="186" y="383" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YCK-Oq-DO5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -367,6 +373,7 @@
                             <constraint firstItem="YCK-Oq-DO5" firstAttribute="bottom" secondItem="0rr-dq-ZOy" secondAttribute="bottom" constant="44" id="1t2-YB-avj"/>
                             <constraint firstItem="YCK-Oq-DO5" firstAttribute="trailing" secondItem="egP-HI-w2f" secondAttribute="trailing" constant="42" id="1xI-6r-fHc"/>
                             <constraint firstItem="UUZ-mJ-k3G" firstAttribute="top" secondItem="YCK-Oq-DO5" secondAttribute="top" constant="263" id="48Y-cr-ASl"/>
+                            <constraint firstItem="7k7-xa-na1" firstAttribute="top" secondItem="UUZ-mJ-k3G" secondAttribute="bottom" constant="18" id="8YA-CR-Jis"/>
                             <constraint firstItem="SDF-xV-z8w" firstAttribute="trailing" secondItem="ka0-oz-vB8" secondAttribute="trailingMargin" id="Svp-d4-RAK"/>
                             <constraint firstItem="egP-HI-w2f" firstAttribute="leading" secondItem="YCK-Oq-DO5" secondAttribute="leading" constant="75" id="TRV-j0-xbg"/>
                             <constraint firstItem="0rr-dq-ZOy" firstAttribute="top" secondItem="egP-HI-w2f" secondAttribute="bottom" constant="39" id="dHT-zN-Owm"/>
@@ -374,11 +381,15 @@
                             <constraint firstItem="SDF-xV-z8w" firstAttribute="top" secondItem="YCK-Oq-DO5" secondAttribute="top" constant="173" id="fzz-tn-E3n"/>
                             <constraint firstItem="egP-HI-w2f" firstAttribute="leading" secondItem="0rr-dq-ZOy" secondAttribute="leading" id="qgV-Xy-9M1"/>
                             <constraint firstItem="SDF-xV-z8w" firstAttribute="trailing" secondItem="UUZ-mJ-k3G" secondAttribute="trailing" id="s7z-7M-PzZ"/>
+                            <constraint firstItem="7k7-xa-na1" firstAttribute="centerX" secondItem="UUZ-mJ-k3G" secondAttribute="centerX" id="spJ-D8-6bg"/>
                             <constraint firstItem="egP-HI-w2f" firstAttribute="trailing" secondItem="0rr-dq-ZOy" secondAttribute="trailing" id="tmt-ds-FJ9"/>
                             <constraint firstItem="SDF-xV-z8w" firstAttribute="leading" secondItem="UUZ-mJ-k3G" secondAttribute="leading" id="wPg-TL-n0w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s0W-yD-9pv"/>
+                    <connections>
+                        <outlet property="beeFactLabel" destination="7k7-xa-na1" id="gtI-Kf-nmA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eU-oO-mHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,7 +425,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hTS-8u-oQP"/>
+        <segue reference="yrh-vN-fN7"/>
         <segue reference="tYd-Va-vgu"/>
     </inferredMetricsTieBreakers>
     <resources>
