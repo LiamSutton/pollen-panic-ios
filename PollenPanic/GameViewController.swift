@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameViewController : UIViewController {
     
     @IBOutlet weak var swipeLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +36,33 @@ class GameViewController : UIViewController {
         self.view.addGestureRecognizer(leftSwipeGestureHandler)
         self.view.addGestureRecognizer(rightSwipeGestureHandler)
         self.view.addGestureRecognizer(downSwipeGestureHandler)
+        
+        if let view = self.view as? SKView {
+            let scene = SKScene(size: view.bounds.size)
+            scene.scaleMode = .resizeFill
+            scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            let image = SKSpriteNode(imageNamed: "bee.png")
+            image.size = CGSize(width: 64, height: 64)
+            
+            scene.addChild(image)
+            
+            view.showsFPS = true
+            view.showsNodeCount = true
+            
+            view.presentScene(scene)
+        }
+        
+        
     }
     
     @objc func handleLeftSwipeGesture (sender: UISwipeGestureRecognizer) {
-        swipeLabel.text = "Current swipe direction: LEFT"
+        
     }
     
     @objc func handleRightSwipeGesture (sender: UISwipeGestureRecognizer) {
-        swipeLabel.text = "Current swipe direction: RIGHT"
+        
     }
     
     @objc func handleDownSwipeGesture (sender: UISwipeGestureRecognizer) {
-        swipeLabel.text = "Current swipe direction: DOWN"
     }
 }

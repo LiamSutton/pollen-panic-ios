@@ -226,66 +226,13 @@
         <scene sceneID="ztR-0E-zZo">
             <objects>
                 <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bvY-vQ-rkx" customClass="GameViewController" customModule="PollenPanic" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="F7X-Y3-tgZ">
+                    <view key="view" contentMode="scaleToFill" id="F7X-Y3-tgZ" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCR-kx-0k7">
-                                <rect key="frame" x="97" y="83" width="220" height="136"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="136" id="xzQ-11-ttG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current swipe direction: NONE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieL-RA-X8R">
-                                <rect key="frame" x="20" y="271" width="374" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="CHh-pJ-btz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnZ-HS-hYJ">
-                                <rect key="frame" x="59" y="609" width="297" height="61"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="dSh-Vz-uWl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <state key="normal" title="End Game">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="8Te-c0-WuR" kind="show" id="V6s-Iz-3gP"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xOh-6x-XPa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ieL-RA-X8R" firstAttribute="top" secondItem="TCR-kx-0k7" secondAttribute="bottom" constant="52" id="5Bx-QV-Xyv"/>
-                            <constraint firstItem="xOh-6x-XPa" firstAttribute="bottom" secondItem="PnZ-HS-hYJ" secondAttribute="bottom" constant="138" id="CgN-QH-cIX"/>
-                            <constraint firstItem="TCR-kx-0k7" firstAttribute="leading" secondItem="xOh-6x-XPa" secondAttribute="leading" constant="97" id="OA2-IA-kea"/>
-                            <constraint firstItem="ieL-RA-X8R" firstAttribute="trailing" secondItem="F7X-Y3-tgZ" secondAttribute="trailingMargin" id="RM3-Vq-Wmp"/>
-                            <constraint firstItem="ieL-RA-X8R" firstAttribute="centerX" secondItem="PnZ-HS-hYJ" secondAttribute="centerX" id="TYI-Ab-iSG"/>
-                            <constraint firstItem="PnZ-HS-hYJ" firstAttribute="leading" secondItem="xOh-6x-XPa" secondAttribute="leading" constant="59" id="X7U-Fy-4xs"/>
-                            <constraint firstItem="TCR-kx-0k7" firstAttribute="top" secondItem="xOh-6x-XPa" secondAttribute="top" constant="83" id="lkn-UW-Dat"/>
-                            <constraint firstItem="ieL-RA-X8R" firstAttribute="leading" secondItem="F7X-Y3-tgZ" secondAttribute="leadingMargin" id="nwn-uD-3Xw"/>
-                            <constraint firstItem="TCR-kx-0k7" firstAttribute="centerX" secondItem="ieL-RA-X8R" secondAttribute="centerX" id="sI7-cW-tml"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5vu-n0-2l3"/>
-                    <connections>
-                        <outlet property="swipeLabel" destination="ieL-RA-X8R" id="ova-HZ-CCE"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQW-mJ-9W7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="reb-tH-gRn">
@@ -301,17 +248,17 @@
             <objects>
                 <viewController storyboardIdentifier="GameOverViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Te-c0-WuR" customClass="GameOverViewController" customModule="PollenPanic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ka0-oz-vB8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDF-xV-z8w">
-                                <rect key="frame" x="20" y="59" width="374" height="102"/>
+                                <rect key="frame" x="20" y="103" width="374" height="102"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score was: 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUZ-mJ-k3G">
-                                <rect key="frame" x="20" y="126" width="374" height="102"/>
+                                <rect key="frame" x="20" y="170" width="374" height="102"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="F7y-Kf-gS2"/>
                                 </constraints>
@@ -358,7 +305,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HV-ww-kJS">
-                                <rect key="frame" x="122" y="266" width="170" height="30"/>
+                                <rect key="frame" x="122" y="310" width="170" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
