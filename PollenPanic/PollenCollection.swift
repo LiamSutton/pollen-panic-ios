@@ -27,9 +27,10 @@ class PollenCollection: Collection {
         for _ in 0...n {
             let xPosition = CGFloat(Int.random(in: 0...gridSize) * 64) + 32
             self.items.append(Pollen(xPosition: xPosition, yPosition: yPosition))
-            yPosition += 250
-            print("X pos: ", xPosition, "Y pos: ", yPosition)
+            yPosition += Constants.POLLEN_DISTANCE
         }
+        
+        furthestBackIndex = self.items.count-1
     }
     
     func move() {
@@ -41,7 +42,10 @@ class PollenCollection: Collection {
     }
     
     func resetItemPosition(item: GameObject) {
-        furthestBackIndex = 1
+        let furthestBack = self.items[furthestBackIndex]
+        item.position.x = CGFloat(Int.random(in: 0...gridSize) * 64) + 32
+        item.position.y = furthestBack.position.y + Constants.POLLEN_DISTANCE
+        furthestBackIndex = items.firstIndex(of: item)!
     }
     
     

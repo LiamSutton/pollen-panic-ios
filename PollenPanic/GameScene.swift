@@ -43,6 +43,12 @@ class GameScene : SKScene {
     override func update(_ currentTime: TimeInterval) {
         bee.move()
         pollen!.move()
+        
+        for item in pollen!.items {
+            if (item.position.y < 0) {
+                pollen?.resetItemPosition(item: item)
+            }
+        }
     }
     
     func setupBee() {
