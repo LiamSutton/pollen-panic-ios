@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F6831A5C25ED3AD400AB79CC /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6831A5B25ED3AD400AB79CC /* GameOverViewController.swift */; };
+		F6D4C30625EF8A010090A311 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C30525EF8A010090A311 /* Constants.swift */; };
 		F6F15EB225EBFF0B000B681A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15EB125EBFF0B000B681A /* AppDelegate.swift */; };
 		F6F15EB425EBFF0B000B681A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F15EB325EBFF0B000B681A /* SceneDelegate.swift */; };
 		F6F15EB925EBFF0B000B681A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F15EB725EBFF0B000B681A /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		F6831A5B25ED3AD400AB79CC /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		F6D4C30525EF8A010090A311 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6F15EAE25EBFF0B000B681A /* PollenPanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollenPanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F15EB125EBFF0B000B681A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6F15EB325EBFF0B000B681A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				F6F15ED225EC0CC5000B681A /* AboutViewController.swift */,
 				F6F15ED525EC0E06000B681A /* GameViewController.swift */,
 				F6831A5B25ED3AD400AB79CC /* GameOverViewController.swift */,
+				F6D4C30525EF8A010090A311 /* Constants.swift */,
 			);
 			path = PollenPanic;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				F6F15ECB25EC0B3C000B681A /* LeaderboardViewController.swift in Sources */,
 				F6F15EB425EBFF0B000B681A /* SceneDelegate.swift in Sources */,
 				F6F15ECF25EC0BDF000B681A /* HelpViewController.swift in Sources */,
+				F6D4C30625EF8A010090A311 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
