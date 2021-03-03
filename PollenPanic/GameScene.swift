@@ -9,7 +9,7 @@ import SpriteKit
 class GameScene : SKScene {
     
     let bee = Bee()
-    let pollen = Pollen()
+    var pollen:PollenCollection?
     
     override func didMove(to view: SKView) {
         
@@ -34,15 +34,15 @@ class GameScene : SKScene {
         view.addGestureRecognizer(downSwipeGestureHandler)
         
         backgroundColor = SKColor.systemTeal
+        pollen = PollenCollection(view: view)
         setupBee()
-        setupPollen()
+        setupPollenCollection()
         
     }
     
     override func update(_ currentTime: TimeInterval) {
-        pollen.checkBounds(v: view!)
         bee.move()
-        pollen.move()
+        pollen!.move()
     }
     
     func setupBee() {
@@ -51,11 +51,11 @@ class GameScene : SKScene {
         addChild(bee)
     }
     
-    func setupPollen() {
-        pollen.size = CGSize(width: 64, height: 64)
-        pollen.position = CGPoint(x: size.width * 0.2, y: size.height * 1.0)
-        pollen.initialPosition = pollen.position
-        addChild(pollen)
+    func setupPollenCollection() {
+        pollen?.populateCollection(n: 10)
+        for item in pollen!.items {
+            addChild(item)
+        }
     }
    
     @objc func handleLeftSwipeGesture (sender: UISwipeGestureRecognizer) {

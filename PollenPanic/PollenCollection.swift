@@ -12,11 +12,24 @@ class PollenCollection: Collection {
     
     var furthestBackIndex: Int
     
-    init() {
+    let view: SKView
+    let gridSize:Int
+    
+    init(view: SKView) {
         self.items = []
+        self.view = view
+        self.gridSize = Int(view.bounds.size.width / 64)
+        furthestBackIndex = 0
     }
     func populateCollection(n: Int) {
-        <#code#>
+        var yPosition:CGFloat = view.bounds.size.height
+        
+        for _ in 0...n {
+            let xPosition = CGFloat(Int.random(in: 0...gridSize) * 64) + 32
+            self.items.append(Pollen(xPosition: xPosition, yPosition: yPosition))
+            yPosition += 250
+            print("X pos: ", xPosition, "Y pos: ", yPosition)
+        }
     }
     
     func move() {
@@ -28,7 +41,7 @@ class PollenCollection: Collection {
     }
     
     func resetItemPosition(item: GameObject) {
-        <#code#>
+        furthestBackIndex = 1
     }
     
     
