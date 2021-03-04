@@ -44,6 +44,7 @@ class GameScene : SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        checkAllCollisions()
         bee.move()
         pollen!.move()
         pollution!.move()
@@ -78,6 +79,28 @@ class GameScene : SKScene {
         pollution?.populateCollection(n: 10)
         for item in pollution!.items {
             addChild(item)
+        }
+    }
+    
+    func checkForCollision(bee: GameObject, obstacle: GameObject) -> Bool {
+        return bee.intersects(obstacle)
+    }
+    
+    func checkAllCollisions() {
+        for item in pollen!.items {
+            let hasCollided:Bool = checkForCollision(bee: bee, obstacle: item)
+            if (hasCollided) {
+                pollen?.resetItemPosition(item: item)
+                print("SCORE!")
+            }
+        }
+        
+        for item in pollution!.items {
+            let hasCollided:Bool = checkForCollision(bee: bee, obstacle: item)
+            if (hasCollided) {
+                pollution?.resetItemPosition(item: item)
+                print("DEAD!")
+            }
         }
     }
    
