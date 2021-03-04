@@ -17,6 +17,8 @@ class Constants {
     
     static let SCORE_INCREASE:Int = 100
     
+    static let HALF_PADDING_WIDTH:Int = 35
+    static let SPRITE_SIZE:Int = 64
     static let BEE_FACTS:[String] =
         [
             "All worker bees are female",

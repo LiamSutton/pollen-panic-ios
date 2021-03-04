@@ -9,14 +9,14 @@ import SpriteKit
 class GameScene : SKScene {
     
     let bee = Bee()
-    var pollen:PollenCollection?
-    var pollution:PollutionCollection?
+    var pollenCollection:PollenCollection?
+    var pollutionCollection:PollutionCollection?
     var viewController:UIViewController?
     var score:Int = 0
     var scoreLabel:SKLabelNode?
+    var gridSize:Int?
     
     override func didMove(to view: SKView) {
-        
         let leftSwipeGestureHandler = UISwipeGestureRecognizer(
             target: self, action: #selector(GameScene.handleLeftSwipeGesture(sender:))
         )
@@ -38,13 +38,14 @@ class GameScene : SKScene {
         view.addGestureRecognizer(downSwipeGestureHandler)
         
         backgroundColor = SKColor.systemTeal
+        gridSize = (Int(view.bounds.size.width)-Constants.SPRITE_SIZE)/Constants.SPRITE_SIZE
         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
         scoreLabel?.text = String(score)
         scoreLabel?.fontSize = 46
         scoreLabel?.fontColor = SKColor.white
-        scoreLabel?.position = CGPoint(x: frame.midX, y: view.bounds.height-200)
-        pollen = PollenCollection(view: view)
-        pollution = PollutionCollection(view: view)
+        scoreLabel?.position = CGPoint(x: frame.midX, y: view.bounds.height-150)
+        pollenCollection = PollenCollection(view: view, gridSize: gridSize!)
+        pollutionCollection = PollutionCollection(view: view, gridSize: gridSize!)
         setupBee()
         setupPollenCollection()
         setupPollutionCollection()
@@ -55,18 +56,18 @@ class GameScene : SKScene {
     override func update(_ currentTime: TimeInterval) {
         checkAllCollisions()
         bee.move()
-        pollen!.move()
-        pollution!.move()
+        pollenCollection!.move()
+        pollutionCollection!.move()
         
-        for item in pollen!.items {
+        for item in pollenCollection!.items {
             if (item.position.y < 0) {
-                pollen?.resetItemPosition(item: item)
+                pollenCollection?.resetItemPosition(item: item)
             }
         }
         
-        for item in pollution!.items {
+        for item in pollutionCollection!.items {
             if (item.position.y < 0) {
-                pollution?.resetItemPosition(item: item)
+                pollutionCollection?.resetItemPosition(item: item)
             }
         }
     }
@@ -74,19 +75,25 @@ class GameScene : SKScene {
     func setupBee() {
         bee.size = CGSize(width: 64, height: 64)
         bee.position = CGPoint(x: size.width * 0.5, y: size.height * 0.1)
+        
+        let beeRange:SKRange = SKRange(lowerLimit: 32, upperLimit: frame.width-32)
+        let beeConstraint:SKConstraint = SKConstraint.positionX(beeRange)
+        
         addChild(bee)
+        
+        bee.constraints = [beeConstraint]
     }
     
     func setupPollenCollection() {
-        pollen?.populateCollection(n: 10)
-        for item in pollen!.items {
+        pollenCollection?.populateCollection(n: 10)
+        for item in pollenCollection!.items {
             addChild(item)
         }
     }
     
     func setupPollutionCollection() {
-        pollution?.populateCollection(n: 10)
-        for item in pollution!.items {
+        pollutionCollection?.populateCollection(n: 10)
+        for item in pollutionCollection!.items {
             addChild(item)
         }
     }
@@ -96,28 +103,27 @@ class GameScene : SKScene {
     }
     
     func checkAllCollisions() {
-        for item in pollen!.items {
+        for item in pollenCollection!.items {
             let hasCollided:Bool = checkForCollision(bee: bee, obstacle: item)
             if (hasCollided) {
-                pollen?.resetItemPosition(item: item)
+                pollenCollection?.resetItemPosition(item: item)
                 print("SCORE!")
                 score += Constants.SCORE_INCREASE
                 scoreLabel?.text = String(score)
             }
         }
         
-        for item in pollution!.items {
+        for item in pollutionCollection!.items {
             let hasCollided:Bool = checkForCollision(bee: bee, obstacle: item)
             if (hasCollided) {
-                pollution?.resetItemPosition(item: item)
+                pollutionCollection?.resetItemPosition(item: item)
                 print("DEAD!")
                 scene?.isPaused = true
                 let gameOverViewController = self.viewController?.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
                                    
                     self.viewController?.navigationController?.pushViewController(gameOverViewController, animated: true)
                     self.viewController?.removeFromParent()
-//                    self.viewController?.dismiss(animated: true, completion: nil)
-                    self.view?.window?.rootViewController?.dismiss(animated: true, completion: nil) // seems to fix the memory leak i think??
+                    self.viewController?.dismiss(animated: true, completion: nil)
                     self.view?.presentScene(nil)
             }
         }

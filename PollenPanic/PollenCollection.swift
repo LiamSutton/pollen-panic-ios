@@ -15,18 +15,19 @@ class PollenCollection: Collection {
     let view: SKView
     let gridSize:Int
     
-    init(view: SKView) {
+    init(view: SKView, gridSize: Int) {
         self.items = []
         self.view = view
-        self.gridSize = Int(view.bounds.size.width / 64)
+        self.gridSize = gridSize
         furthestBackIndex = 0
     }
     func populateCollection(n: Int) {
         var yPosition:CGFloat = (view.bounds.size.height + 154)
         for _ in 0...n {
-            let xPosition = CGFloat(Int.random(in: 0...gridSize) * 64) + 32
+            let gridIndex:Int = Int.random(in: 0...gridSize)
+            let xPosition:CGFloat = CGFloat((gridIndex*Constants.SPRITE_SIZE))+32
             self.items.append(Pollen(xPosition: xPosition, yPosition: yPosition))
-            yPosition += Constants.POLLEN_DISTANCE
+            yPosition+=Constants.POLLEN_DISTANCE
         }
         
         furthestBackIndex = self.items.count-1

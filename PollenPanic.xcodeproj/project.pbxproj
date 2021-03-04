@@ -108,8 +108,8 @@
 				F6D4C34E25EFFB870090A311 /* GameObject.swift */,
 				F6D4C35125EFFC5C0090A311 /* Moveable.swift */,
 				F6D4C35425EFFDD40090A311 /* Collection.swift */,
-				F6D4C35725EFFF0F0090A311 /* PollenCollection.swift */,
 				F61B675325F0CD0A002CC23A /* Pollution.swift */,
+				F6D4C35725EFFF0F0090A311 /* PollenCollection.swift */,
 				F61B675625F0CE29002CC23A /* PollutionCollection.swift */,
 			);
 			path = PollenPanic;
