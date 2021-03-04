@@ -4,13 +4,14 @@
 //
 //  Created by Liam Sutton on 03/03/2021.
 //
-
+import UIKit
 import SpriteKit
 class GameScene : SKScene {
     
     let bee = Bee()
     var pollen:PollenCollection?
     var pollution:PollutionCollection?
+    var viewController:UIViewController?
     
     override func didMove(to view: SKView) {
         
@@ -100,6 +101,8 @@ class GameScene : SKScene {
             if (hasCollided) {
                 pollution?.resetItemPosition(item: item)
                 print("DEAD!")
+                self.viewController?.performSegue(withIdentifier: "GameToGameOver", sender: viewController)
+                
             }
         }
     }

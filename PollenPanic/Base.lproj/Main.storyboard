@@ -233,6 +233,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="5vu-n0-2l3"/>
+                    <connections>
+                        <segue destination="8Te-c0-WuR" kind="show" identifier="GameToGameOver" id="GLI-pR-t6Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQW-mJ-9W7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="reb-tH-gRn">
@@ -248,17 +251,17 @@
             <objects>
                 <viewController storyboardIdentifier="GameOverViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Te-c0-WuR" customClass="GameOverViewController" customModule="PollenPanic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ka0-oz-vB8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDF-xV-z8w">
-                                <rect key="frame" x="20" y="103" width="374" height="102"/>
+                                <rect key="frame" x="20" y="59" width="374" height="102"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score was: 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUZ-mJ-k3G">
-                                <rect key="frame" x="20" y="170" width="374" height="102"/>
+                                <rect key="frame" x="20" y="126" width="374" height="102"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="F7y-Kf-gS2"/>
                                 </constraints>
@@ -305,7 +308,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HV-ww-kJS">
-                                <rect key="frame" x="122" y="310" width="170" height="30"/>
+                                <rect key="frame" x="122" y="266" width="170" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -382,6 +385,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="GLI-pR-t6Y"/>
         <segue reference="hTS-8u-oQP"/>
         <segue reference="tYd-Va-vgu"/>
     </inferredMetricsTieBreakers>
