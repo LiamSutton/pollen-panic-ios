@@ -19,6 +19,12 @@ class Constants {
     
     static let HALF_PADDING_WIDTH:Int = 35
     static let SPRITE_SIZE:Int = 64
+    
+    static let POLLEN_PICKUP_SFX:String = "pollenpickupsfx"
+    static let GAME_OVER_SFX:String = "gameoversfx"
+    static let BACKGROUND_MUSIC:String = "loopingbackgroundmusic"
+    
+    
     static let BEE_FACTS:[String] =
         [
             "All worker bees are female",

@@ -6,6 +6,7 @@
 //
 import UIKit
 import SpriteKit
+import AVFoundation
 class GameScene : SKScene {
     
     let bee = Bee()
@@ -15,6 +16,19 @@ class GameScene : SKScene {
     var score:Int = 0
     var scoreLabel:SKLabelNode?
     var gridSize:Int?
+    var audioPlayer : AVAudioPlayer!
+    var backgroundMusic : SKAudioNode!
+    
+    func playSfx(soundFileName: String) {
+        let soundURL = Bundle.main.url(forResource: soundFileName, withExtension: "mp3")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
+            audioPlayer.play()
+        }
+        catch {
+            print(error)
+        }
+    }
     
     override func didMove(to view: SKView) {
         let leftSwipeGestureHandler = UISwipeGestureRecognizer(
@@ -50,6 +64,11 @@ class GameScene : SKScene {
         setupPollenCollection()
         setupPollutionCollection()
         addChild(scoreLabel!)
+        
+        if let musicUrl = Bundle.main.url(forResource: Constants.BACKGROUND_MUSIC, withExtension: "mp3") {
+            backgroundMusic = SKAudioNode(url: musicUrl)
+            addChild(backgroundMusic)
+        }
         
     }
     
@@ -109,6 +128,7 @@ class GameScene : SKScene {
                 pollenCollection?.resetItemPosition(item: item)
                 print("SCORE!")
                 score += Constants.SCORE_INCREASE
+                playSfx(soundFileName: Constants.POLLEN_PICKUP_SFX)
                 scoreLabel?.text = String(score)
             }
         }
@@ -118,7 +138,8 @@ class GameScene : SKScene {
             if (hasCollided) {
                 pollutionCollection?.resetItemPosition(item: item)
                 print("DEAD!")
-                scene?.isPaused = true
+//                playSfx(soundFileName: Constants.GAME_OVER_SFX) // Currently crashes JANK
+//                scene?.isPaused = true
                 let gameOverViewController = self.viewController?.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
                                    
                     self.viewController?.navigationController?.pushViewController(gameOverViewController, animated: true)
