@@ -6,7 +6,7 @@
 //
 import UIKit
 import SpriteKit
-import AVFoundation
+
 class GameScene : SKScene {
     
     let bee = Bee()
@@ -16,19 +16,10 @@ class GameScene : SKScene {
     var score:Int = 0
     var scoreLabel:SKLabelNode?
     var gridSize:Int?
-    var audioPlayer : AVAudioPlayer!
+    var pollenPickupSfx: SKAudioNode!
+    var gameOverSfx: SKAudioNode!
     var backgroundMusic : SKAudioNode!
     
-    func playSfx(soundFileName: String) {
-        let soundURL = Bundle.main.url(forResource: soundFileName, withExtension: "mp3")
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
-            audioPlayer.play()
-        }
-        catch {
-            print(error)
-        }
-    }
     
     override func didMove(to view: SKView) {
         let leftSwipeGestureHandler = UISwipeGestureRecognizer(
@@ -65,11 +56,22 @@ class GameScene : SKScene {
         setupPollutionCollection()
         addChild(scoreLabel!)
         
-        if let musicUrl = Bundle.main.url(forResource: Constants.BACKGROUND_MUSIC, withExtension: "mp3") {
-            backgroundMusic = SKAudioNode(url: musicUrl)
+        if let backgroundMusicUrl = Bundle.main.url(forResource: Constants.BACKGROUND_MUSIC, withExtension: "mp3") {
+            backgroundMusic = SKAudioNode(url: backgroundMusicUrl)
             addChild(backgroundMusic)
         }
         
+        if let pollenPickupSfxUrl = Bundle.main.url(forResource: Constants.POLLEN_PICKUP_SFX, withExtension: "mp3") {
+            pollenPickupSfx = SKAudioNode(url: pollenPickupSfxUrl)
+            pollenPickupSfx.autoplayLooped = false
+            addChild(pollenPickupSfx)
+        }
+        
+        if let gameOverSfxUrl = Bundle.main.url(forResource: Constants.GAME_OVER_SFX, withExtension: "mp3") {
+            gameOverSfx = SKAudioNode(url: gameOverSfxUrl)
+            gameOverSfx.autoplayLooped = false
+            addChild(gameOverSfx)
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -126,9 +128,8 @@ class GameScene : SKScene {
             let hasCollided:Bool = checkForCollision(bee: bee, obstacle: item)
             if (hasCollided) {
                 pollenCollection?.resetItemPosition(item: item)
-                print("SCORE!")
                 score += Constants.SCORE_INCREASE
-                playSfx(soundFileName: Constants.POLLEN_PICKUP_SFX)
+                pollenPickupSfx.run(SKAction.play())
                 scoreLabel?.text = String(score)
             }
         }
@@ -136,20 +137,22 @@ class GameScene : SKScene {
         for item in pollutionCollection!.items {
             let hasCollided:Bool = checkForCollision(bee: bee, obstacle: item)
             if (hasCollided) {
+                gameOverSfx.run(SKAction.play())
                 pollutionCollection?.resetItemPosition(item: item)
-                print("DEAD!")
-//                playSfx(soundFileName: Constants.GAME_OVER_SFX) // Currently crashes JANK
-//                scene?.isPaused = true
-                let gameOverViewController = self.viewController?.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
-                                   
-                    self.viewController?.navigationController?.pushViewController(gameOverViewController, animated: true)
-                    self.viewController?.removeFromParent()
-                    self.viewController?.dismiss(animated: true, completion: nil)
-                    self.view?.presentScene(nil)
+                backgroundMusic.run(SKAction.stop())
+                perform(#selector(gameOver), with: nil, afterDelay: 0.5)
             }
         }
     }
-   
+    // TODO: Fix memory leak, currently PISSING memory everywhere
+    @objc func gameOver() {
+        viewController?.performSegue(withIdentifier: "GameToGameOver", sender: self.view)
+        view?.presentScene(nil)
+        viewController=nil
+        
+        
+        view?.presentScene(nil)
+    }
     @objc func handleLeftSwipeGesture (sender: UISwipeGestureRecognizer) {
         bee.changeDirection(newDirection: Constants.DIRECTION_LEFT)
     }

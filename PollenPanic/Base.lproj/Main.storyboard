@@ -380,6 +380,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="GLI-pR-t6Y"/>
         <segue reference="yrh-vN-fN7"/>
         <segue reference="tYd-Va-vgu"/>
     </inferredMetricsTieBreakers>
