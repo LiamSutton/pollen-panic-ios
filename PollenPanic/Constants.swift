@@ -13,6 +13,7 @@ class Constants {
     static let DIRECTION_DOWN:CGFloat = -2.0
     
     static let POLLEN_DISTANCE:CGFloat = 250
+    static let POLLUTION_DISTANCE:CGFloat = 750
     static let BEE_FACTS:[String] =
         [
             "All worker bees are female",

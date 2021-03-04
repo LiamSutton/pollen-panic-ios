@@ -10,6 +10,7 @@ class GameScene : SKScene {
     
     let bee = Bee()
     var pollen:PollenCollection?
+    var pollution:PollutionCollection?
     
     override func didMove(to view: SKView) {
         
@@ -35,18 +36,27 @@ class GameScene : SKScene {
         
         backgroundColor = SKColor.systemTeal
         pollen = PollenCollection(view: view)
+        pollution = PollutionCollection(view: view)
         setupBee()
         setupPollenCollection()
+        setupPollutionCollection()
         
     }
     
     override func update(_ currentTime: TimeInterval) {
         bee.move()
         pollen!.move()
+        pollution!.move()
         
         for item in pollen!.items {
             if (item.position.y < 0) {
                 pollen?.resetItemPosition(item: item)
+            }
+        }
+        
+        for item in pollution!.items {
+            if (item.position.y < 0) {
+                pollution?.resetItemPosition(item: item)
             }
         }
     }
@@ -60,6 +70,13 @@ class GameScene : SKScene {
     func setupPollenCollection() {
         pollen?.populateCollection(n: 10)
         for item in pollen!.items {
+            addChild(item)
+        }
+    }
+    
+    func setupPollutionCollection() {
+        pollution?.populateCollection(n: 10)
+        for item in pollution!.items {
             addChild(item)
         }
     }

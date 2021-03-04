@@ -1,13 +1,13 @@
 //
-//  PollenCollection.swift
+//  PollutionCollection.swift
 //  PollenPanic
 //
-//  Created by Liam Sutton on 03/03/2021.
+//  Created by Liam Sutton on 04/03/2021.
 //
 
 import SpriteKit
 
-class PollenCollection: Collection {
+class PollutionCollection: Collection {
     var items: [GameObject]
     
     var furthestBackIndex: Int
@@ -22,12 +22,12 @@ class PollenCollection: Collection {
         furthestBackIndex = 0
     }
     func populateCollection(n: Int) {
-        var yPosition:CGFloat = view.bounds.size.height
+        var yPosition:CGFloat = view.bounds.size.height+250
         
         for _ in 0...n {
             let xPosition = CGFloat(Int.random(in: 0...gridSize) * 64) + 32
-            self.items.append(Pollen(xPosition: xPosition, yPosition: yPosition))
-            yPosition += Constants.POLLEN_DISTANCE
+            self.items.append(Pollution(xPosition: xPosition, yPosition: yPosition))
+            yPosition += Constants.POLLUTION_DISTANCE
         }
         
         furthestBackIndex = self.items.count-1
@@ -44,7 +44,7 @@ class PollenCollection: Collection {
     func resetItemPosition(item: GameObject) {
         let furthestBack = self.items[furthestBackIndex]
         item.position.x = CGFloat(Int.random(in: 0...gridSize) * 64) + 32
-        item.position.y = furthestBack.position.y + Constants.POLLEN_DISTANCE
+        item.position.y = furthestBack.position.y + Constants.POLLUTION_DISTANCE
         furthestBackIndex = self.items.firstIndex(of: item)!
     }
     
