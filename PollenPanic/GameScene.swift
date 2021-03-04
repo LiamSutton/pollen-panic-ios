@@ -12,6 +12,8 @@ class GameScene : SKScene {
     var pollen:PollenCollection?
     var pollution:PollutionCollection?
     var viewController:UIViewController?
+    var score:Int = 0
+    var scoreLabel:SKLabelNode?
     
     override func didMove(to view: SKView) {
         
@@ -36,11 +38,17 @@ class GameScene : SKScene {
         view.addGestureRecognizer(downSwipeGestureHandler)
         
         backgroundColor = SKColor.systemTeal
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel?.text = String(score)
+        scoreLabel?.fontSize = 46
+        scoreLabel?.fontColor = SKColor.white
+        scoreLabel?.position = CGPoint(x: frame.midX, y: view.bounds.height-200)
         pollen = PollenCollection(view: view)
         pollution = PollutionCollection(view: view)
         setupBee()
         setupPollenCollection()
         setupPollutionCollection()
+        addChild(scoreLabel!)
         
     }
     
@@ -93,6 +101,8 @@ class GameScene : SKScene {
             if (hasCollided) {
                 pollen?.resetItemPosition(item: item)
                 print("SCORE!")
+                score += Constants.SCORE_INCREASE
+                scoreLabel?.text = String(score)
             }
         }
         
@@ -101,8 +111,14 @@ class GameScene : SKScene {
             if (hasCollided) {
                 pollution?.resetItemPosition(item: item)
                 print("DEAD!")
-                self.viewController?.performSegue(withIdentifier: "GameToGameOver", sender: viewController)
-                
+                scene?.isPaused = true
+                let gameOverViewController = self.viewController?.storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
+                                   
+                    self.viewController?.navigationController?.pushViewController(gameOverViewController, animated: true)
+                    self.viewController?.removeFromParent()
+//                    self.viewController?.dismiss(animated: true, completion: nil)
+                    self.view?.window?.rootViewController?.dismiss(animated: true, completion: nil) // seems to fix the memory leak i think??
+                    self.view?.presentScene(nil)
             }
         }
     }
@@ -118,4 +134,5 @@ class GameScene : SKScene {
     @objc func handleDownSwipeGesture (sender: UISwipeGestureRecognizer) {
         bee.changeDirection(newDirection: Constants.DIRECTION_NONE)
     }
+    
 }
