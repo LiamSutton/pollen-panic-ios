@@ -13,6 +13,9 @@ class ScoreSubmissionViewController : UIViewController {
     let appdelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func HandleScoreSubmission(_ sender: Any) {
+        let username:String = usernameInput.text!
+        appdelegate.scoreModel.getScoreData().setUsername(username: username)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
