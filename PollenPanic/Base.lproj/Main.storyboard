@@ -200,22 +200,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-Ss-fdP">
-                                <rect key="frame" x="91" y="163" width="233" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-Ss-fdP">
+                                <rect key="frame" x="31" y="82" width="352" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="b4V-8z-TSB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pollen" translatesAutoresizingMaskIntoConstraints="NO" id="Jrq-in-8S9">
+                                <rect key="frame" x="9" y="585" width="172" height="158"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pollution" translatesAutoresizingMaskIntoConstraints="NO" id="kKW-e6-3HK">
+                                <rect key="frame" x="200" y="585" width="194" height="158"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pollen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spm-eB-Xhd">
+                                <rect key="frame" x="31" y="507" width="128" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="MRq-LV-jBI"/>
+                                    <constraint firstAttribute="width" constant="128" id="VCr-TI-pUX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pollution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jha-SF-C0h">
+                                <rect key="frame" x="200" y="507" width="194" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkS-5R-uHb">
+                                <rect key="frame" x="31" y="229" width="352" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="zFH-od-C0R"/>
+                                </constraints>
+                                <string key="text">The aim of PollenPanic is to steer your bee into pieces of pollen whilst avoiding pollution. You aren't penalised for missing pollen!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To controll your bee you can swipe left to move left, swipe right to move right and swipe down to stay in place" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rZ-df-2k5">
+                                <rect key="frame" x="31" y="356" width="352" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="776-k0-5Ff"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4e4-hx-nBv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eZb-Ss-fdP" firstAttribute="centerX" secondItem="oj1-7t-gou" secondAttribute="centerX" id="0jr-SJ-bdu"/>
+                            <constraint firstItem="1rZ-df-2k5" firstAttribute="top" secondItem="SkS-5R-uHb" secondAttribute="bottom" constant="28" id="209-9Y-hZb"/>
+                            <constraint firstItem="Jrq-in-8S9" firstAttribute="top" secondItem="kKW-e6-3HK" secondAttribute="top" id="2Ur-OH-fYq"/>
+                            <constraint firstItem="jha-SF-C0h" firstAttribute="trailing" secondItem="kKW-e6-3HK" secondAttribute="trailing" id="6fs-Ib-DWj"/>
+                            <constraint firstItem="eZb-Ss-fdP" firstAttribute="leading" secondItem="SkS-5R-uHb" secondAttribute="leading" id="DVQ-Y2-z6N"/>
+                            <constraint firstItem="eZb-Ss-fdP" firstAttribute="leading" secondItem="4e4-hx-nBv" secondAttribute="leading" constant="31" id="Fts-q5-vaS"/>
+                            <constraint firstItem="spm-eB-Xhd" firstAttribute="baseline" secondItem="jha-SF-C0h" secondAttribute="baseline" id="GtE-tg-wfA"/>
+                            <constraint firstItem="jha-SF-C0h" firstAttribute="leading" secondItem="kKW-e6-3HK" secondAttribute="leading" id="Hhy-Dz-tdK"/>
+                            <constraint firstItem="Jrq-in-8S9" firstAttribute="top" secondItem="spm-eB-Xhd" secondAttribute="bottom" constant="39" id="IDY-eD-czB"/>
+                            <constraint firstItem="SkS-5R-uHb" firstAttribute="trailing" secondItem="1rZ-df-2k5" secondAttribute="trailing" id="RVA-Zg-H19"/>
+                            <constraint firstItem="SkS-5R-uHb" firstAttribute="top" secondItem="eZb-Ss-fdP" secondAttribute="bottom" constant="35" id="W4T-qs-tb0"/>
+                            <constraint firstItem="1rZ-df-2k5" firstAttribute="leading" secondItem="spm-eB-Xhd" secondAttribute="leading" id="WgR-KU-sup"/>
+                            <constraint firstItem="Jrq-in-8S9" firstAttribute="bottom" secondItem="kKW-e6-3HK" secondAttribute="bottom" id="c58-3x-xbx"/>
+                            <constraint firstItem="SkS-5R-uHb" firstAttribute="leading" secondItem="1rZ-df-2k5" secondAttribute="leading" id="e7V-cA-9iN"/>
+                            <constraint firstItem="kKW-e6-3HK" firstAttribute="leading" secondItem="Jrq-in-8S9" secondAttribute="trailing" constant="19" id="e8p-Rp-iqk"/>
+                            <constraint firstItem="spm-eB-Xhd" firstAttribute="top" secondItem="1rZ-df-2k5" secondAttribute="bottom" constant="52" id="oQM-ge-0fJ"/>
+                            <constraint firstItem="spm-eB-Xhd" firstAttribute="centerX" secondItem="Jrq-in-8S9" secondAttribute="centerX" id="pur-bN-Yc9"/>
+                            <constraint firstItem="eZb-Ss-fdP" firstAttribute="top" secondItem="4e4-hx-nBv" secondAttribute="top" constant="82" id="qqQ-FO-fQd"/>
+                            <constraint firstItem="4e4-hx-nBv" firstAttribute="bottom" secondItem="Jrq-in-8S9" secondAttribute="bottom" constant="65" id="uUS-xW-CZp"/>
+                            <constraint firstItem="Jrq-in-8S9" firstAttribute="leading" secondItem="4e4-hx-nBv" secondAttribute="leading" constant="9" id="wDF-K4-8OB"/>
+                            <constraint firstItem="jha-SF-C0h" firstAttribute="trailing" secondItem="oj1-7t-gou" secondAttribute="trailingMargin" id="zBG-j4-tc4"/>
+                            <constraint firstItem="eZb-Ss-fdP" firstAttribute="trailing" secondItem="SkS-5R-uHb" secondAttribute="trailing" id="zbg-Mx-zY7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jXf-8o-phi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sF-ss-jgF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="563"/>
+            <point key="canvasLocation" x="250.72463768115944" y="562.5"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="ztR-0E-zZo">
@@ -584,11 +651,13 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="4bO-Jc-HFM"/>
-        <segue reference="hTS-8u-oQP"/>
+        <segue reference="yrh-vN-fN7"/>
         <segue reference="tYd-Va-vgu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bee" width="128" height="128"/>
+        <image name="pollen" width="128" height="128"/>
+        <image name="pollution" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

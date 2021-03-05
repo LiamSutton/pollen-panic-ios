@@ -26,9 +26,4 @@ class GameViewController : UIViewController {
         scene.viewController = self
         skView.presentScene(scene)
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        
-    }
 }
