@@ -19,6 +19,7 @@ class GameScene : SKScene {
     var pollenPickupSfx: SKAudioNode!
     var gameOverSfx: SKAudioNode!
     var backgroundMusic : SKAudioNode!
+    let appdelegate:AppDelegate = UIApplication.shared.delegate  as! AppDelegate
     
     
     override func didMove(to view: SKView) {
@@ -140,6 +141,7 @@ class GameScene : SKScene {
                 gameOverSfx.run(SKAction.play())
                 pollutionCollection?.resetItemPosition(item: item)
                 backgroundMusic.run(SKAction.stop())
+                appdelegate.scoreModel.getScoreData().setScore(score: score)
                 perform(#selector(gameOver), with: nil, afterDelay: 0.5)
             }
         }
