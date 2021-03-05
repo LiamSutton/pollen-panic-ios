@@ -24,6 +24,7 @@ class Constants {
     static let GAME_OVER_SFX:String = "gameoversfx"
     static let BACKGROUND_MUSIC:String = "loopingbackgroundmusic"
     
+    static let DATABASE_FILE_NAME:String = "leaderboard.sqlite"
     
     static let BEE_FACTS:[String] =
         [

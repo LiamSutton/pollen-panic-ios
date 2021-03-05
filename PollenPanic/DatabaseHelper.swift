@@ -11,7 +11,7 @@ import SQLite3
 class DatabaseHelper {
     
     var database:OpaquePointer?
-    let databasePath:String = "myDB.sqlite"
+    let databasePath:String = Constants.DATABASE_FILE_NAME
     
     init() {
         database = openDatabase()
@@ -48,7 +48,8 @@ class DatabaseHelper {
         sqlite3_finalize(createTableStatement)
     }
     
-    func insert(username: String, score: Int) {
+    func insert(username: String, score: Int) -> Bool{
+        var succesfullyInserted:Bool? = nil
         let insertStatementString:String = "INSERT INTO leaderboard (username, score) VALUES (?, ?)"
         var insertStatement:OpaquePointer? = nil
         if sqlite3_prepare_v2(database, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
@@ -57,14 +58,39 @@ class DatabaseHelper {
             
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Succesfully inserted row")
+                succesfullyInserted = true
             }
             else {
                 print("Couldnt insert row")
+                succesfullyInserted = false
             }
         }
         else {
             print("Couldnt prepare insert statement")
         }
         sqlite3_finalize(insertStatement)
+        return succesfullyInserted!
+    }
+    
+    func getLeaderboardData() -> [LeaderBoardEntry] {
+        let queryStatementString:String = "SELECT * FROM leaderboard ORDER BY score DESC LIMIT 0,10"
+        var queryStatement:OpaquePointer? = nil
+        var entries:[LeaderBoardEntry] = []
+        
+        if sqlite3_prepare_v2(database, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let id:Int32 = sqlite3_column_int(queryStatement, 0)
+                let username:String = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let score:Int32 = sqlite3_column_int(queryStatement, 2)
+                
+                entries.append(LeaderBoardEntry(id: Int(id), username: username, score: Int(score)))
+                print("ROW DATA: \(id) | \(username) | \(score)")
+            }
+        }
+        else {
+            print("SELECT statement couldnt be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return entries
     }
 }

@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
 class LeaderboardViewController : UIViewController {
+    var db:DatabaseHelper = DatabaseHelper()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let entries:[LeaderBoardEntry] = db.getLeaderboardData()
     }
 }
