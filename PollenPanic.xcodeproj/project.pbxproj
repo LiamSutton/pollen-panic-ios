@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F610011D25F230CC00461C5D /* ScoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F610011C25F230CC00461C5D /* ScoreData.swift */; };
 		F610012025F2317000461C5D /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F610011F25F2317000461C5D /* ScoreModel.swift */; };
+		F610012425F239E200461C5D /* ScoreSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F610012325F239E200461C5D /* ScoreSubmissionViewController.swift */; };
 		F61B675425F0CD0A002CC23A /* Pollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B675325F0CD0A002CC23A /* Pollution.swift */; };
 		F61B675725F0CE29002CC23A /* PollutionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B675625F0CE29002CC23A /* PollutionCollection.swift */; };
 		F61B675D25F12C2C002CC23A /* loopingbackgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F61B675A25F12C2C002CC23A /* loopingbackgroundmusic.mp3 */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		F610011C25F230CC00461C5D /* ScoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreData.swift; sourceTree = "<group>"; };
 		F610011F25F2317000461C5D /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
+		F610012325F239E200461C5D /* ScoreSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSubmissionViewController.swift; sourceTree = "<group>"; };
 		F61B675325F0CD0A002CC23A /* Pollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pollution.swift; sourceTree = "<group>"; };
 		F61B675625F0CE29002CC23A /* PollutionCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionCollection.swift; sourceTree = "<group>"; };
 		F61B675A25F12C2C002CC23A /* loopingbackgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loopingbackgroundmusic.mp3; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				F61B675625F0CE29002CC23A /* PollutionCollection.swift */,
 				F610011C25F230CC00461C5D /* ScoreData.swift */,
 				F610011F25F2317000461C5D /* ScoreModel.swift */,
+				F610012325F239E200461C5D /* ScoreSubmissionViewController.swift */,
 			);
 			path = PollenPanic;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				F6D4C35525EFFDD40090A311 /* Collection.swift in Sources */,
 				F6D4C35825EFFF0F0090A311 /* PollenCollection.swift in Sources */,
 				F6D4C35225EFFC5C0090A311 /* Moveable.swift in Sources */,
+				F610012425F239E200461C5D /* ScoreSubmissionViewController.swift in Sources */,
 				F6F15EB225EBFF0B000B681A /* AppDelegate.swift in Sources */,
 				F6831A5C25ED3AD400AB79CC /* GameOverViewController.swift in Sources */,
 				F61B675425F0CD0A002CC23A /* Pollution.swift in Sources */,
