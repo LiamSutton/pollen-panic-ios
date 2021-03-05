@@ -6,10 +6,25 @@
 //
 
 import UIKit
-class LeaderboardViewController : UIViewController {
+class LeaderboardViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     var db:DatabaseHelper = DatabaseHelper()
+    var entries:[LeaderBoardEntry] = []
+    let cellIdentifier:String = "leaderboardEntryCellIdentifier"
     override func viewDidLoad() {
         super.viewDidLoad()
-        let entries:[LeaderBoardEntry] = db.getLeaderboardData()
+        entries = db.getLeaderboardData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return entries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath)
+        
+        cell.textLabel?.text = entries[indexPath.row].getUsername()
+        
+        return cell
     }
 }
