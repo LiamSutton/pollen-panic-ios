@@ -30,7 +30,14 @@ class Constants {
         [
             "All worker bees are female",
             "A bee produces a teaspoon of honey in her lifetime",
-            "The type of flower bees take their nectar from determienes the honeys flavour",
-            "Bees dont want to sting you as it will kill them"
+            "The type of flower bees take their nectar from determines the honeys flavour",
+            "Bees dont want to sting you as it will kill them",
+            "To produce a kilogram of honey, bees fly the equivalent of three times around the world!",
+            "Male bees (drones) have bigger eyes so they can find the queen easier",
+            "A queen bee can produce 2,000 eggs a day!",
+            "If a bee egg is fertilised it will be female, and if not it will be a male",
+            "To get more bee's in your garden, add more colour to it!",
+            "There are over 20,000 species of bee and they are found everywhere except Antarctica!",
+            "The bee is the only social insect to be partically domesticated by humans"
         ]
 }
