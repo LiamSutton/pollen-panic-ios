@@ -73,6 +73,22 @@ class GameScene : SKScene {
             gameOverSfx.autoplayLooped = false
             addChild(gameOverSfx)
         }
+        
+        let grassLeft = SKShapeNode(rectOf: CGSize(width: 128, height: view.bounds.size.height))
+        grassLeft.fillColor = SKColor.init(red: 0.2, green: 0.6, blue: 0.2, alpha: 1.0)
+        grassLeft.strokeColor = grassLeft.fillColor
+        grassLeft.lineWidth = 2
+        grassLeft.position = CGPoint(x: 32, y: frame.midY)
+        
+        let grassRight = SKShapeNode(rectOf: CGSize(width: 128, height: view.bounds.size.height))
+        grassRight.fillColor = grassLeft.fillColor
+        grassRight.strokeColor = grassLeft.strokeColor
+        grassRight.lineWidth = 2
+        grassRight.position = CGPoint(x: frame.width-32, y: frame.midY)
+        addChild(grassLeft)
+        addChild(grassRight)
+        
+    
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -145,6 +161,10 @@ class GameScene : SKScene {
                 perform(#selector(gameOver), with: nil, afterDelay: 0.5)
             }
         }
+    }
+    
+    func drawBackground() {
+        
     }
     // TODO: Fix memory leak, currently PISSING memory everywhere
     @objc func gameOver() {
