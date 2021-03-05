@@ -11,6 +11,7 @@
 		F610012025F2317000461C5D /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F610011F25F2317000461C5D /* ScoreModel.swift */; };
 		F610012425F239E200461C5D /* ScoreSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F610012325F239E200461C5D /* ScoreSubmissionViewController.swift */; };
 		F610012725F23FEE00461C5D /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F610012625F23FEE00461C5D /* DatabaseHelper.swift */; };
+		F610012A25F2436B00461C5D /* LeaderboardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F610012925F2436B00461C5D /* LeaderboardEntry.swift */; };
 		F61B675425F0CD0A002CC23A /* Pollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B675325F0CD0A002CC23A /* Pollution.swift */; };
 		F61B675725F0CE29002CC23A /* PollutionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B675625F0CE29002CC23A /* PollutionCollection.swift */; };
 		F61B675D25F12C2C002CC23A /* loopingbackgroundmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F61B675A25F12C2C002CC23A /* loopingbackgroundmusic.mp3 */; };
@@ -43,6 +44,7 @@
 		F610011F25F2317000461C5D /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
 		F610012325F239E200461C5D /* ScoreSubmissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSubmissionViewController.swift; sourceTree = "<group>"; };
 		F610012625F23FEE00461C5D /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		F610012925F2436B00461C5D /* LeaderboardEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardEntry.swift; sourceTree = "<group>"; };
 		F61B675325F0CD0A002CC23A /* Pollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pollution.swift; sourceTree = "<group>"; };
 		F61B675625F0CE29002CC23A /* PollutionCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutionCollection.swift; sourceTree = "<group>"; };
 		F61B675A25F12C2C002CC23A /* loopingbackgroundmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loopingbackgroundmusic.mp3; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				F610011F25F2317000461C5D /* ScoreModel.swift */,
 				F610012325F239E200461C5D /* ScoreSubmissionViewController.swift */,
 				F610012625F23FEE00461C5D /* DatabaseHelper.swift */,
+				F610012925F2436B00461C5D /* LeaderboardEntry.swift */,
 			);
 			path = PollenPanic;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				F6F15EB425EBFF0B000B681A /* SceneDelegate.swift in Sources */,
 				F6F15ECF25EC0BDF000B681A /* HelpViewController.swift in Sources */,
 				F6D4C30625EF8A010090A311 /* Constants.swift in Sources */,
+				F610012A25F2436B00461C5D /* LeaderboardEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

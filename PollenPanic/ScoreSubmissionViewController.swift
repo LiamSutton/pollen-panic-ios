@@ -11,11 +11,12 @@ class ScoreSubmissionViewController : UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var usernameInput: UITextField!
     let appdelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let db:DatabaseHelper = DatabaseHelper()
     
     @IBAction func HandleScoreSubmission(_ sender: Any) {
         let username:String = usernameInput.text!
         appdelegate.scoreModel.getScoreData().setUsername(username: username)
-        
+        db.insert(username: appdelegate.scoreModel.getScoreData().getUsername(), score: appdelegate.scoreModel.getScoreData().getScore())
     }
     override func viewDidLoad() {
         super.viewDidLoad()
