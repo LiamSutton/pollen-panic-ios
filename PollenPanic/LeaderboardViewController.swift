@@ -22,10 +22,14 @@ class LeaderboardViewController : UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! LeaderboardEntryTableViewCell
-        
+        cell.indexLabel.text = "[\(indexPath.row+1)]"
         cell.usernameLabel.text = entries[indexPath.row].getUsername()
         cell.scoreLabel.text = String(entries[indexPath.row].getScore())
-        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.systemYellow
+        } else {
+            cell.backgroundColor = UIColor.black
+        }
         return cell
     }
 }
