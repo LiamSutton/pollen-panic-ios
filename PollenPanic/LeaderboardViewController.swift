@@ -21,9 +21,10 @@ class LeaderboardViewController : UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! LeaderboardEntryTableViewCell
         
-        cell.textLabel?.text = entries[indexPath.row].getUsername()
+        cell.usernameLabel.text = entries[indexPath.row].getUsername()
+        cell.scoreLabel.text = String(entries[indexPath.row].getScore())
         
         return cell
     }
