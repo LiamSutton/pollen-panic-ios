@@ -6,6 +6,7 @@
 //
 import UIKit
 
+// Used to model a custom tableviewcell for leaderboard entries
 class LeaderboardEntryTableViewCell : UITableViewCell {
     @IBOutlet weak var indexLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!

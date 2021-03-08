@@ -7,8 +7,8 @@
 
 import SpriteKit
 
+// Class used to model a piece of pollen the player can pickup to increase their score
 class Pollen : GameObject, Moveable{
-    var initialPosition:CGPoint = CGPoint(x: 0, y: 0)
     init(xPosition:CGFloat, yPosition:CGFloat) {
         super.init(imageNamed: Constants.POLLEN_SPRITE)
         self.position = CGPoint(x: xPosition, y: yPosition)
@@ -19,13 +19,8 @@ class Pollen : GameObject, Moveable{
         super.init(coder: aDecoder)
     }
     
+    // every frame move downwards at a constant speed
     func move() {
         self.position.y += Constants.DIRECTION_DOWN
-    }
-    
-    func checkBounds(v: SKView) {
-        if (self.position.y < 0) {
-            self.position = initialPosition
-        }
     }
 }

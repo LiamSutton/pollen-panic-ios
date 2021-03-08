@@ -15,17 +15,19 @@ class ScoreSubmissionViewController : UIViewController {
     let appdelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let db:DatabaseHelper = DatabaseHelper()
     
-    // TODO: Tidy up this shite
+    // Insert a new row containing the current players score and username to the leaderboard database
     @IBAction func HandleScoreSubmission(_ sender: Any) {
-        let textInput:String = usernameInput.text!
+        let textInput:String = usernameInput.text! // parse the text input
         
-        appdelegate.scoreModel.getScoreData().setUsername(username: textInput)
+        appdelegate.scoreModel.getScoreData().setUsername(username: textInput) // update the score model
         
-        let scoreData:ScoreData = appdelegate.scoreModel.getScoreData()
+        let scoreData:ScoreData = appdelegate.scoreModel.getScoreData() // get the current score data from the model
         
+        // parse the username and score
         let username:String = scoreData.getUsername()
         let score:Int = scoreData.getScore()
         
+        // insert the data from the model into the db, returns true/false depending on the transaction result
         let inserted:Bool = db.insert(username: username, score: score)
         
         if (inserted) {

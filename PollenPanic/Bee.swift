@@ -19,10 +19,12 @@ class Bee : GameObject, Moveable {
         super.init(coder: aDecoder)
     }
     
+    // increase/decrease the x position by moving in the current direction
     func move() {
         self.position.x += currentDirection
     }
     
+    // update the direction the bee should move in based on the argument passed
     func changeDirection(newDirection: CGFloat) {
         self.currentDirection = newDirection
     }

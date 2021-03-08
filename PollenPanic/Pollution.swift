@@ -7,8 +7,8 @@
 
 import SpriteKit
 
+// Class used to model a pollution object the player must avoid
 class Pollution : GameObject, Moveable {
-    var initialPosition:CGPoint = CGPoint(x: 0, y: 0)
     init(xPosition:CGFloat, yPosition:CGFloat) {
         super.init(imageNamed: Constants.POLLUTION_SPRITE)
         self.position = CGPoint(x: xPosition, y: yPosition)
@@ -18,6 +18,8 @@ class Pollution : GameObject, Moveable {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // every frame move downwards at a constant speed
     func move() {
         self.position.y += Constants.DIRECTION_DOWN
     }

@@ -5,6 +5,7 @@
 //  Created by Liam Sutton on 05/03/2021.
 //
 
+// Used to model information regarding the current score and player name
 class ScoreData {
     private var username:String
     private var score:Int
