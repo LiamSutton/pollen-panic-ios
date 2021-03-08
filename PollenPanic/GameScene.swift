@@ -32,14 +32,13 @@ class GameScene : SKScene {
         bee = Bee()
         pollenCollection = PollenCollection(view: view, gridSize: gridSize!)
         pollutionCollection = PollutionCollection(view: view, gridSize: gridSize!)
-        
+        setupBackground()
         setupBee()
         setupPollenCollection()
         setupPollutionCollection()
         
         
         setupSfx()
-        setupBackground()
         setupUI()
     }
     

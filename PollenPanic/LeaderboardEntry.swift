@@ -7,10 +7,11 @@
 
 import Foundation
 
+// This class is used to model data for a valid leaderboard entry retrieved from the database
 class LeaderBoardEntry {
-    private var id:Int
-    private var username:String
-    private var score:Int
+    private var id:Int // The row id
+    private var username:String // the username associated with the entry
+    private var score:Int // the score assosicated with the entry
     
     init(id: Int, username: String, score:Int) {
         self.id = id

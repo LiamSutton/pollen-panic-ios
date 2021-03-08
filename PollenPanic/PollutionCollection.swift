@@ -22,10 +22,12 @@ class PollutionCollection: Collection {
         furthestBackIndex = 0
     }
     func populateCollection(n: Int) {
-        var yPosition:CGFloat = (view.bounds.size.height + 154) + 250 // height plus rounded padding + initial starting position
+        // height plus rounded padding + initial starting position
+        var yPosition:CGFloat = (view.bounds.size.height + Constants.HEIGHT_PADDING) + Constants.POLLUTION_STARTING_POSITION
+        
         for _ in 0...n {
             let gridIndex:Int = Int.random(in: 0...gridSize)
-            let xPosition:CGFloat = CGFloat((gridIndex*Constants.SPRITE_SIZE))+32
+            let xPosition:CGFloat = CGFloat((gridIndex*Constants.SPRITE_SIZE+Constants.HALF_SPRITE_SIZE))
             self.items.append(Pollution(xPosition: xPosition, yPosition: yPosition))
             yPosition+=Constants.POLLUTION_DISTANCE
         }

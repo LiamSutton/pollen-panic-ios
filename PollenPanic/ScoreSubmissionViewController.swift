@@ -17,9 +17,16 @@ class ScoreSubmissionViewController : UIViewController {
     
     // TODO: Tidy up this shite
     @IBAction func HandleScoreSubmission(_ sender: Any) {
-        let username:String = usernameInput.text!
-        appdelegate.scoreModel.getScoreData().setUsername(username: username)
-        let inserted:Bool = db.insert(username: appdelegate.scoreModel.getScoreData().getUsername(), score: appdelegate.scoreModel.getScoreData().getScore())
+        let textInput:String = usernameInput.text!
+        
+        appdelegate.scoreModel.getScoreData().setUsername(username: textInput)
+        
+        let scoreData:ScoreData = appdelegate.scoreModel.getScoreData()
+        
+        let username:String = scoreData.getUsername()
+        let score:Int = scoreData.getScore()
+        
+        let inserted:Bool = db.insert(username: username, score: score)
         
         if (inserted) {
             insertResultLabel.text = "Score submitted"

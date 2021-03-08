@@ -22,10 +22,10 @@ class PollenCollection: Collection {
         furthestBackIndex = 0
     }
     func populateCollection(n: Int) {
-        var yPosition:CGFloat = (view.bounds.size.height + 154)
+        var yPosition:CGFloat = (view.bounds.size.height + Constants.HEIGHT_PADDING)
         for _ in 0...n {
             let gridIndex:Int = Int.random(in: 0...gridSize)
-            let xPosition:CGFloat = CGFloat((gridIndex*Constants.SPRITE_SIZE))+32
+            let xPosition:CGFloat = CGFloat((gridIndex*Constants.SPRITE_SIZE+Constants.HALF_SPRITE_SIZE))
             self.items.append(Pollen(xPosition: xPosition, yPosition: yPosition))
             yPosition+=Constants.POLLEN_DISTANCE
         }
