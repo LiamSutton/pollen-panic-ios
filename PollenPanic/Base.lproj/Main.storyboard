@@ -170,9 +170,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2p2-cW-zzl">
-                                <rect key="frame" x="91" y="162" width="232" height="112"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y20-DP-Vun">
+                                <rect key="frame" x="20" y="60" width="374" height="129"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="129" id="ykm-QY-I4M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxh-dM-xoH">
+                                <rect key="frame" x="31" y="241" width="352" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="8Ij-Ns-5JB"/>
+                                </constraints>
+                                <string key="text">Worker bees will often leave the hive in search of food for everybody. This food is called pollen and is used to make delicious honey!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtf-Wk-5L4">
+                                <rect key="frame" x="31" y="348" width="352" height="281"/>
+                                <string key="text">As you can see whilst playing the game, pollution is a big threat to bees. Its not all doom and gloom though because you can help by reducing your greenhouse gas emmisions. So do your part for our buzzy amigos!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -180,17 +200,23 @@
                         <viewLayoutGuide key="safeArea" id="nyS-Jg-ZlB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2p2-cW-zzl" firstAttribute="centerX" secondItem="FUs-hB-ZQ4" secondAttribute="centerX" id="cai-E0-qKQ"/>
-                            <constraint firstItem="2p2-cW-zzl" firstAttribute="leading" secondItem="nyS-Jg-ZlB" secondAttribute="leading" constant="91" id="ftC-JC-EKb"/>
-                            <constraint firstItem="nyS-Jg-ZlB" firstAttribute="bottom" secondItem="2p2-cW-zzl" secondAttribute="bottom" constant="534" id="j4V-Xp-xLI"/>
-                            <constraint firstItem="2p2-cW-zzl" firstAttribute="top" secondItem="nyS-Jg-ZlB" secondAttribute="top" constant="162" id="yZs-GS-3jH"/>
+                            <constraint firstItem="lxh-dM-xoH" firstAttribute="leading" secondItem="nyS-Jg-ZlB" secondAttribute="leading" constant="31" id="1MU-zn-WsL"/>
+                            <constraint firstItem="Y20-DP-Vun" firstAttribute="trailing" secondItem="FUs-hB-ZQ4" secondAttribute="trailingMargin" id="E71-s0-we2"/>
+                            <constraint firstItem="lxh-dM-xoH" firstAttribute="trailing" secondItem="Rtf-Wk-5L4" secondAttribute="trailing" id="GF1-ZR-og0"/>
+                            <constraint firstItem="lxh-dM-xoH" firstAttribute="leading" secondItem="Rtf-Wk-5L4" secondAttribute="leading" id="GUF-jb-4dw"/>
+                            <constraint firstItem="Rtf-Wk-5L4" firstAttribute="top" secondItem="lxh-dM-xoH" secondAttribute="bottom" constant="8" id="Rjw-I9-jkc"/>
+                            <constraint firstItem="Y20-DP-Vun" firstAttribute="top" secondItem="nyS-Jg-ZlB" secondAttribute="top" constant="60" id="T0e-Wq-pfZ"/>
+                            <constraint firstItem="nyS-Jg-ZlB" firstAttribute="bottom" secondItem="Rtf-Wk-5L4" secondAttribute="bottom" constant="179" id="TNK-JH-HwW"/>
+                            <constraint firstItem="Y20-DP-Vun" firstAttribute="centerX" secondItem="lxh-dM-xoH" secondAttribute="centerX" id="ZmG-kq-jfa"/>
+                            <constraint firstItem="Y20-DP-Vun" firstAttribute="leading" secondItem="FUs-hB-ZQ4" secondAttribute="leadingMargin" id="cfZ-oN-Grb"/>
+                            <constraint firstItem="lxh-dM-xoH" firstAttribute="top" secondItem="Y20-DP-Vun" secondAttribute="bottom" constant="52" id="xLC-OK-n1U"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8ua-dF-dWn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJy-dP-bd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1084" y="773"/>
+            <point key="canvasLocation" x="-1084.0579710144928" y="772.76785714285711"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="58Z-GM-WzS">
@@ -650,7 +676,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4bO-Jc-HFM"/>
+        <segue reference="GLI-pR-t6Y"/>
         <segue reference="yrh-vN-fN7"/>
         <segue reference="tYd-Va-vgu"/>
     </inferredMetricsTieBreakers>
