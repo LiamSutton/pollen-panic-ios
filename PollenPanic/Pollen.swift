@@ -10,9 +10,9 @@ import SpriteKit
 class Pollen : GameObject, Moveable{
     var initialPosition:CGPoint = CGPoint(x: 0, y: 0)
     init(xPosition:CGFloat, yPosition:CGFloat) {
-        super.init(imageNamed: "pollen.png")
+        super.init(imageNamed: Constants.POLLEN_SPRITE)
         self.position = CGPoint(x: xPosition, y: yPosition)
-        self.size = CGSize(width: 64, height: 64)
+        self.size = CGSize(width: Constants.SPRITE_SIZE, height: Constants.SPRITE_SIZE)
     }
     
     required init?(coder aDecoder: NSCoder) {

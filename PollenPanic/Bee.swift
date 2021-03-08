@@ -7,11 +7,12 @@
 
 import SpriteKit
 
+// This class models the object the player will controll
 class Bee : GameObject, Moveable {
     var currentDirection:CGFloat = Constants.DIRECTION_NONE
     
     init() {
-        super.init(imageNamed: "bee.png");
+        super.init(imageNamed: Constants.BEE_SPRITE);
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -9,26 +9,25 @@ import SpriteKit
 
 class GameScene : SKScene {
     
-    var bee:Bee?
-    var pollenCollection:PollenCollection?
-    var pollutionCollection:PollutionCollection?
-    var viewController:UIViewController?
-    var score:Int = 0
-    var scoreLabel:SKLabelNode?
-    var gridSize:Int?
-    var pollenPickupSfx: SKAudioNode!
-    var gameOverSfx: SKAudioNode!
-    var backgroundMusic : SKAudioNode!
-    let appdelegate:AppDelegate = UIApplication.shared.delegate  as! AppDelegate
+    var bee:Bee? // player object
+    var pollenCollection:PollenCollection? // aggregation of pollen objects
+    var pollutionCollection:PollutionCollection? // aggregation of pollution objects
+    var viewController:UIViewController? // reference to the top level view controller
+    var score:Int = 0 // reset score
+    var scoreLabel:SKLabelNode? // label used to display current score
+    var gridSize:Int? // grid size used to determine how many objects can be placed in a row
+    var pollenPickupSfx: SKAudioNode! // sound played when pollen is picked up
+    var gameOverSfx: SKAudioNode! // sound played when player dies and game ends
+    var backgroundMusic : SKAudioNode! // background music played in continuous loop
+    let appdelegate:AppDelegate = UIApplication.shared.delegate  as! AppDelegate // reference to score model
     
     
     override func didMove(to view: SKView) {
+        setupGestures(view: view) // setup gestures to allow for player movement
         
+        gridSize = (Int(frame.width)-Constants.SPRITE_SIZE)/Constants.SPRITE_SIZE // determine grid size
         
-        setupGestures(view: view)
-        
-        gridSize = (Int(frame.width)-Constants.SPRITE_SIZE)/Constants.SPRITE_SIZE
-        
+        // Initialise necessary objects
         bee = Bee()
         pollenCollection = PollenCollection(view: view, gridSize: gridSize!)
         pollutionCollection = PollutionCollection(view: view, gridSize: gridSize!)
@@ -37,23 +36,26 @@ class GameScene : SKScene {
         setupPollenCollection()
         setupPollutionCollection()
         
-        
+        // configure sfx and ui elements
         setupSfx()
         setupUI()
     }
     
+    // main game loop
     override func update(_ currentTime: TimeInterval) {
-        checkAllCollisions()
-        bee?.move()
-        pollenCollection!.move()
-        pollutionCollection!.move()
+        checkAllCollisions() // see if any objects are colliding which could affect game state
+        bee?.move() // move the player in the current direction
+        pollenCollection!.move() // move all pollen objects downwards
+        pollutionCollection!.move() // move all pollution objects downwards
         
+        // if any pollen objects are off screen, reset them to the top
         for item in pollenCollection!.items {
             if (item.position.y < 0) {
                 pollenCollection?.resetItemPosition(item: item)
             }
         }
         
+        // if any pollution objects are off screen, reset them to the top
         for item in pollutionCollection!.items {
             if (item.position.y < 0) {
                 pollutionCollection?.resetItemPosition(item: item)
@@ -61,6 +63,7 @@ class GameScene : SKScene {
         }
     }
     
+    // Initialise bee object and constrain it to the bounds of the screen
     func setupBee() {
         bee?.size = CGSize(width: 64, height: 64)
         bee?.position = CGPoint(x: size.width * 0.5, y: size.height * 0.1)
@@ -73,6 +76,7 @@ class GameScene : SKScene {
         bee?.constraints = [beeConstraint]
     }
     
+    // adds the ability for swipes to be detected and used to manipulate the players bee object
     func setupGestures(view: SKView) {
         let leftSwipeGestureHandler = UISwipeGestureRecognizer(
             target: self, action: #selector(GameScene.handleLeftSwipeGesture(sender:))
@@ -95,6 +99,7 @@ class GameScene : SKScene {
         view.addGestureRecognizer(downSwipeGestureHandler)
     }
     
+    // fill the pollen aggregation with n objects and add them to the scene
     func setupPollenCollection() {
         pollenCollection?.populateCollection(n: 10)
         for item in pollenCollection!.items {
@@ -102,6 +107,7 @@ class GameScene : SKScene {
         }
     }
     
+    // fill the pollution aggregation with n objects and add them to the scene
     func setupPollutionCollection() {
         pollutionCollection?.populateCollection(n: 10)
         for item in pollutionCollection!.items {
@@ -109,6 +115,7 @@ class GameScene : SKScene {
         }
     }
     
+    // setup a ui element to display the users current score and add it to the scene
     func setupUI() {
         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
         scoreLabel?.text = String(score)
@@ -118,12 +125,15 @@ class GameScene : SKScene {
         addChild(scoreLabel!)
     }
     
+    // checks for an intersection between a single bee and other gameobject
     func checkForCollision(bee: GameObject, obstacle: GameObject) -> Bool {
         return bee.intersects(obstacle)
     }
     
+    // checks every object in the scene for collisions
     func checkAllCollisions() {
         for item in pollenCollection!.items {
+            // if bee collides will pollen, incrememnt score and reset the pollen object
             let hasCollided:Bool = checkForCollision(bee: bee!, obstacle: item)
             if (hasCollided) {
                 pollenCollection?.resetItemPosition(item: item)
@@ -134,6 +144,7 @@ class GameScene : SKScene {
         }
         
         for item in pollutionCollection!.items {
+            // if bee collides with pollution, end the game and transition to the gameover view after a small delay
             let hasCollided:Bool = checkForCollision(bee: bee!, obstacle: item)
             if (hasCollided) {
                 gameOverSfx.run(SKAction.play())
@@ -145,6 +156,7 @@ class GameScene : SKScene {
         }
     }
     
+    // draws the background consisting of a blue background and two grass verges
     func setupBackground() {
         backgroundColor = SKColor.systemTeal
         let grassLeft = SKShapeNode(rectOf: CGSize(width: 128, height: frame.height))
@@ -163,6 +175,7 @@ class GameScene : SKScene {
         addChild(grassRight)
     }
     
+    // initialises the sound effects played during the game loop
     func setupSfx() {
         if let backgroundMusicUrl = Bundle.main.url(forResource: Constants.BACKGROUND_MUSIC, withExtension: "mp3") {
             backgroundMusic = SKAudioNode(url: backgroundMusicUrl)
@@ -182,7 +195,7 @@ class GameScene : SKScene {
         }
     }
   
-    
+    // transition to the gameover view
     @objc func gameOver() {
         viewController?.performSegue(withIdentifier: "GameToGameOver", sender: self.view)
         view?.presentScene(nil)
@@ -190,14 +203,17 @@ class GameScene : SKScene {
         view?.presentScene(nil)
     }
     
+    // used to move the bee to the left
     @objc func handleLeftSwipeGesture (sender: UISwipeGestureRecognizer) {
         bee?.changeDirection(newDirection: Constants.DIRECTION_LEFT)
     }
     
+    // used to move the bee to the right
     @objc func handleRightSwipeGesture (sender: UISwipeGestureRecognizer) {
         bee?.changeDirection(newDirection: Constants.DIRECTION_RIGHT)
     }
     
+    // used to make the bee stationary
     @objc func handleDownSwipeGesture (sender: UISwipeGestureRecognizer) {
         bee?.changeDirection(newDirection: Constants.DIRECTION_NONE)
     }

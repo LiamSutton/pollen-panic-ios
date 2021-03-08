@@ -22,8 +22,14 @@ class Constants {
     
     static let SCORE_INCREASE:Int = 100
     
-    static let HALF_SPRITE_SIZE:Int = 32
+    // constants measuring different sprite sizes
+    static let HALF_SPRITE_SIZE:Int = 32 // often used to center a sprite
     static let SPRITE_SIZE:Int = 64
+    
+    // string id of graphics assets
+    static let BEE_SPRITE:String = "bee.png"
+    static let POLLEN_SPRITE:String = "pollen.png"
+    static let POLLUTION_SPRITE:String = "pollution.png"
     
     // string id of sfx assets
     static let POLLEN_PICKUP_SFX:String = "pollenpickupsfx"

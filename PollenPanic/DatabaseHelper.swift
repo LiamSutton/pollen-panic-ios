@@ -8,16 +8,19 @@
 import Foundation
 import SQLite3
 
+// This class is used to facilitate interaction with an sqlite database
 class DatabaseHelper {
     
-    var database:OpaquePointer?
-    let databasePath:String = Constants.DATABASE_FILE_NAME
+    var database:OpaquePointer? // Pointer to db object
+    let databasePath:String = Constants.DATABASE_FILE_NAME // path to the database file
     
+    // Constructor: opens a connection to the database and creates necessary tables if they dont exist
     init() {
         database = openDatabase()
         createTable()
     }
     
+    // Opens a connection to the database
     func openDatabase() -> OpaquePointer? {
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(databasePath)
         var db:OpaquePointer? = nil
@@ -32,6 +35,7 @@ class DatabaseHelper {
         }
     }
     
+    // if required, creates the database according to my schema
     func createTable() {
         let createTableString:String =
             "CREATE TABLE IF NOT EXISTS leaderboard(Id INTEGER PRIMARY KEY AUTOINCREMENT,username TEXT,score INTETGER);"
@@ -48,6 +52,7 @@ class DatabaseHelper {
         sqlite3_finalize(createTableStatement)
     }
     
+    // Inserts a row into the database representing a leaderboard entry
     func insert(username: String, score: Int) -> Bool{
         var succesfullyInserted:Bool? = nil
         let insertStatementString:String = "INSERT INTO leaderboard (username, score) VALUES (?, ?)"
@@ -72,6 +77,7 @@ class DatabaseHelper {
         return succesfullyInserted!
     }
     
+    // retrieves the top 10 entries from the leaderboard table
     func getLeaderboardData() -> [LeaderBoardEntry] {
         let queryStatementString:String = "SELECT * FROM leaderboard ORDER BY score DESC LIMIT 0,10"
         var queryStatement:OpaquePointer? = nil

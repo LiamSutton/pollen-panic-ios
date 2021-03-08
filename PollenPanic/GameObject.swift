@@ -7,6 +7,7 @@
 
 import SpriteKit
 
+// This class is used as a base for all SkSpriteNodes in the game
 class GameObject : SKSpriteNode {
     init(imageNamed: String) {
         let texture = SKTexture(imageNamed: imageNamed)
